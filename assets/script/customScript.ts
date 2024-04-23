@@ -5,11 +5,14 @@ const { ccclass, property } = _decorator;
 export class customScript extends Component {
     // @property({ type: Sprite })
     // person: Sprite = null;
-    start() {}
+    start() {
+        resources.preload("prefabs/nodePrefab", Prefab);
+    }
 
     update(deltaTime: number) {}
     onClick() {
-        for (let i = 0; i < 5; i++) {
+        const before = Date.now();
+        for (let i = 0; i < 4; i++) {
             resources.load("prefabs/nodePrefab", Prefab, null, (err, prefab) => {
                 console.log(typeof prefab);
                 console.log(prefab);
@@ -17,6 +20,8 @@ export class customScript extends Component {
                 this.node.getParent().addChild(newNode);
             });
         }
+        const after = Date.now();
+        console.log(after - before);
     }
 
     // onClick() {
