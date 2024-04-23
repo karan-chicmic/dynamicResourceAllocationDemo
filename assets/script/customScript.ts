@@ -5,18 +5,19 @@ const { ccclass, property } = _decorator;
 export class customScript extends Component {
     // @property({ type: Sprite })
     // person: Sprite = null;
-    start() {
+    start() {}
+
+    update(deltaTime: number) {}
+    onClick() {
         for (let i = 0; i < 5; i++) {
             resources.load("prefabs/nodePrefab", Prefab, null, (err, prefab) => {
                 console.log(typeof prefab);
                 console.log(prefab);
                 const newNode = instantiate(prefab);
-                this.node.addChild(newNode);
+                this.node.getParent().addChild(newNode);
             });
         }
     }
-
-    update(deltaTime: number) {}
 
     // onClick() {
     //     resources.load("person/person1/spriteFrame", SpriteFrame, null, (err, spriteFrame) => {
