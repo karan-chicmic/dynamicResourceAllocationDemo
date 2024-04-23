@@ -1,12 +1,19 @@
-import { _decorator, Component, instantiate, Node, Prefab, resources, Sprite, SpriteFrame } from "cc";
+import { _decorator, assetManager, Component, instantiate, Node, Prefab, resources, Sprite, SpriteFrame } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("customScript")
 export class customScript extends Component {
-    // @property({ type: Sprite })
-    // person: Sprite = null;
+    @property({ type: Sprite })
+    img: Sprite = null;
     start() {
-        resources.preload("prefabs/nodePrefab", Prefab);
+        // resources.preload("prefabs/nodePrefab", Prefab);
+        let remoteUrl =
+            "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/02/luffy-is-grinning-in-the-movie.jpg";
+        assetManager.loadRemote(remoteUrl, function (err, img) {
+            console.log("Image", img);
+            console.log("Error", err);
+            this.img.spriteFrame = img;
+        });
     }
 
     update(deltaTime: number) {}
