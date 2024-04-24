@@ -1,18 +1,35 @@
-import { _decorator, assetManager, Component, instantiate, Node, Prefab, resources, Sprite, SpriteFrame } from "cc";
+import {
+    _decorator,
+    assetManager,
+    Component,
+    ImageAsset,
+    instantiate,
+    Node,
+    Prefab,
+    resources,
+    Sprite,
+    SpriteFrame,
+    Texture2D,
+} from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass("customScript")
 export class customScript extends Component {
     @property({ type: Sprite })
-    img: Sprite = null;
+    imG: Sprite = null;
     start() {
         // resources.preload("prefabs/nodePrefab", Prefab);
+        if (!this.imG) return;
         let remoteUrl =
             "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/02/luffy-is-grinning-in-the-movie.jpg";
-        assetManager.loadRemote(remoteUrl, function (err, img) {
+        assetManager.loadRemote(remoteUrl, (err, img: ImageAsset) => {
             console.log("Image", img);
             console.log("Error", err);
-            this.img.spriteFrame = img;
+            const spriteFrame = new SpriteFrame();
+            const texture = new Texture2D();
+            texture.image = img;
+            spriteFrame.texture = texture;
+            this.imG.spriteFrame = spriteFrame;
         });
     }
 

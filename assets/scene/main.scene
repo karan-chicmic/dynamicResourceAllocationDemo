@@ -392,7 +392,9 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "img": null,
+    "imG": {
+      "__id__": 7
+    },
     "_id": "a6qlkxUh5IHKmfoHq2aP8A"
   },
   {
