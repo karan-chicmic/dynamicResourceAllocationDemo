@@ -26,8 +26,6 @@ export class bundleScript extends Component {
             this.bundle = bundle;
             // console.log("bundle: ", this.bundle);
         });
-
-        console;
     }
     start() {}
 
@@ -42,11 +40,12 @@ export class bundleScript extends Component {
         //     console.log(typeof prefab);
         //     console.log(prefab.entries());
         // });
+        console.log("before childrens: ", director.getScene().children);
 
         this.bundle.load("resources/person1/spriteFrame", SpriteFrame, null, (err, spriteFrame) => {
-            console.log("spriteFrame", spriteFrame);
+            // console.log("spriteFrame", spriteFrame);
             if (err) {
-                console.log(err);
+                console.error(err);
                 return;
             }
             this.img.spriteFrame = spriteFrame;
@@ -54,12 +53,14 @@ export class bundleScript extends Component {
 
         this.bundle.load("prefabs/nodePrefab", Prefab, null, (err, prefab) => {
             if (err) {
-                console.log(err);
+                console.error(err);
                 return;
             }
             let newNode = instantiate(prefab);
-            console.log(newNode);
-            this.node.getParent().addChild(newNode);
+            console.log("new Node: ", newNode);
+            this.node.addChild(newNode);
+
+            console.log("after childrens: ", director.getScene().children);
         });
     }
 }
