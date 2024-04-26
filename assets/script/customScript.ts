@@ -49,7 +49,7 @@ export class customScript extends Component {
     }
 
     // onClick() {
-    //     resources.load("person/person1/spriteFrame", SpriteFrame, null, (err, spriteFrame) => {
+    //     resources.load("images/person1/spriteFrame", SpriteFrame, null, (err, spriteFrame) => {
     //         console.log("frame: ", spriteFrame);
     //         console.log(err);
     //         // this.node.getComponent(Sprite).spriteFrame = spriteFrame;

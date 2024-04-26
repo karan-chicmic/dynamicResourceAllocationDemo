@@ -7,6 +7,7 @@
   "subMetas": {},
   "userData": {
     "isBundle": true,
-    "bundleName": "bundle1"
+    "bundleName": "bundle1",
+    "bundleFilterConfig": []
   }
 }

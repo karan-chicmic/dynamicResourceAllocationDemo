@@ -42,12 +42,13 @@ export class bundleScript extends Component {
         // });
         console.log("before childrens: ", director.getScene().children);
 
-        this.bundle.load("resources/person1/spriteFrame", SpriteFrame, null, (err, spriteFrame) => {
+        this.bundle.load("images/person1/spriteFrame", SpriteFrame, null, (err, spriteFrame) => {
             // console.log("spriteFrame", spriteFrame);
             if (err) {
                 console.error(err);
                 return;
             }
+            console.log(spriteFrame.getHash());
             this.img.spriteFrame = spriteFrame;
         });
 

@@ -7,7 +7,7 @@
         "configs": {
           "native": {
             "preferredOptions": {
-              "isRemote": false,
+              "isRemote": true,
               "compressionType": "merge_dep"
             }
           },
